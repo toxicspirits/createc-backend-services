@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module requestEventsFilesLogger</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>requestEventsFilesLogger</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="">index</a><br><a href="file:/Users/murarip/Tradexa/hyperadvertising_data_pipeline/hyp_adv_util/requestEventsFilesLogger.py">/Users/murarip/Tradexa/hyperadvertising_data_pipeline/hyp_adv_util/requestEventsFilesLogger.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;is&nbsp;used&nbsp;in&nbsp;the&nbsp;processing&nbsp;stage&nbsp;of&nbsp;the&nbsp;pipeline.<br>
+It&nbsp;logs&nbsp;the&nbsp;files&nbsp;which&nbsp;are&nbsp;generated,&nbsp;which&nbsp;are&nbsp;later&nbsp;loaded&nbsp;onto&nbsp;DB</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="hyp_adv_util.commons.html">commons</a><br>
+</td><td width="25%" valign=top><a href="json.html">json</a><br>
+</td><td width="25%" valign=top><a href="psycopg2.extras.html">psycopg2.extras</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-insert_events_files"><strong>insert_events_files</strong></a>(event, s3_uri_list)</dt><dd><tt>Create&nbsp;an&nbsp;entry&nbsp;in&nbsp;table&nbsp;for&nbsp;new&nbsp;files&nbsp;and&nbsp;creates&nbsp;new&nbsp;list&nbsp;of&nbsp;events&nbsp;with&nbsp;file_id&nbsp;returned&nbsp;from&nbsp;DB&nbsp;(INSERT&nbsp;INTO&nbsp;.....&nbsp;RETURNING)<br>
+&nbsp;<br>
+:param&nbsp;event:&nbsp;event&nbsp;with&nbsp;all&nbsp;details&nbsp;of&nbsp;files,&nbsp;and&nbsp;parent&nbsp;event_id<br>
+:param&nbsp;s3_uri_list:&nbsp;list&nbsp;of&nbsp;all&nbsp;file&nbsp;s3_uris<br>
+:return:&nbsp;return_events(list)</tt></dd></dl>
+ <dl><dt><a name="-update_load_status"><strong>update_load_status</strong></a>(event_id, file_id, status, **kwargs)</dt><dd><tt>To&nbsp;Update&nbsp;status&nbsp;and&nbsp;details&nbsp;of&nbsp;file&nbsp;loading.&nbsp;UPDATE&nbsp;query&nbsp;using&nbsp;id&nbsp;received&nbsp;in&nbsp;<a href="#-insert_events_files">insert_events_files</a>()<br>
+&nbsp;<br>
+:param&nbsp;event_id:&nbsp;event_id&nbsp;of&nbsp;event&nbsp;which&nbsp;generated&nbsp;this&nbsp;file<br>
+:param&nbsp;file_id:&nbsp;id&nbsp;of&nbsp;file<br>
+:param&nbsp;status:&nbsp;status&nbsp;of&nbsp;the&nbsp;load&nbsp;attempt<br>
+:param&nbsp;kwargs:&nbsp;if&nbsp;status&nbsp;FAILED,&nbsp;to&nbsp;also&nbsp;pass&nbsp;a&nbsp;'log'&nbsp;with&nbsp;additional&nbsp;details<br>
+:return:&nbsp;None</tt></dd></dl>
+</td></tr></table>
+</body></html>

@@ -11,8 +11,8 @@ router = APIRouter()
 # AWS SES SMTP Settings
 SMTP_HOST = "email-smtp.us-east-1.amazonaws.com"
 SMTP_PORT = 587
-SMTP_USER = "AKIAQLBG27CX32LC56NF"
-SMTP_PASS = "BAbbo1FjU+XtEGnlHTHDFdQoFv24lZJZCeFBtDzr0UkM"
+SMTP_USER = os.getenv("SES_SMTP_USERNAME")
+SMTP_PASS = os.getenv("SES_SMTP_PASSWORD")
 FROM_EMAIL = "info@createc.in"
 
 # In-memory store: { email: { otp: str, expires_at: datetime } }

@@ -23,7 +23,7 @@ security = HTTPBasic()
 
 
 def get_current_username(credentials: HTTPBasicCredentials = Depends(security)):
-    correct_username = secrets.compare_digest(credentials.username, "hyperAds_dev")
+    correct_username = secrets.compare_digest(credentials.username, "createcDev")
     correct_password = secrets.compare_digest(credentials.password, "kwf5aAjJpxE7")
     if not (correct_username and correct_password):
         raise HTTPException(
